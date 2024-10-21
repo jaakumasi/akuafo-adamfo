@@ -1,0 +1,66 @@
+@import "@/styles/_mixins.scss";
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 40px;
+  background-color: white;
+
+  .logo {
+    display: flex;
+    align-items: center;
+
+    img {
+      margin-right: 7px;
+    }
+  }
+
+  .authed_user {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    .notification {
+      @include round_and_center(40px);
+      background-color: rgb(235, 235, 235);
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    .profile_icon {
+      @include round_and_center(40px);
+      background-color: rgb(235, 235, 235);
+
+      img {
+        @include round_and_center(40px);
+      }
+
+      .profile_initials {
+        font-weight: 500;
+      }
+    }
+
+    .profile_dropdown {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .sign_type {
+    span {
+      margin-right: 12px;
+    }
+  }
+}

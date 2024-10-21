@@ -1,0 +1,42 @@
+<div class="signup">
+    <div class="signup_form">
+        <form [formGroup]="signupForm">
+            <h3>Create a free account</h3>
+
+            <!--email-->
+            <app-input
+                formControlName="email"
+                label="Email"
+                placeholder="Enter your email"
+                icon="assets/images/email.svg"
+                [invalidInputMessage]="emailNotProvided ? 'email required': ''"
+            />
+
+            <!--password-->
+            <app-input
+                formControlName="password"
+                label="Password"
+                placeholder="Enter your password"
+                icon="assets/images/password.svg"
+                [invalidInputMessage]="passwordNotProvided ? 'password required': ''"
+            />
+
+            <!--confirm password-->
+            <app-input
+                formControlName="confirmPassword"
+                label="Confirm Password"
+                placeholder="Enter your password"
+                icon="assets/images/password.svg"
+                [invalidInputMessage]="passwordMismatch ? 'passwords do not match': ''"
+            />
+
+            <app-button
+                text="Create Account"
+                size="large"
+                (clickEvent)="handleSignup()"
+                [isDisabled]="!isSignupFormValid()"
+            />
+        </form>
+
+    </div>
+</div>

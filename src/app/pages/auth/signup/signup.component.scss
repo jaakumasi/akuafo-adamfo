@@ -1,0 +1,14 @@
+@import "../styles/mixins";
+@import "@/styles/_variables.scss";
+
+.signup {
+  .signup_form {
+    @include auth_form_container;
+
+    h3 {
+      @include auth_form_header;
+    }
+
+    
+  }
+}

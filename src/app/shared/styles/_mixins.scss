@@ -1,0 +1,8 @@
+@mixin round_and_center($width) {
+  width: $width;
+  height: $width;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

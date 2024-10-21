@@ -1,0 +1,44 @@
+<div class="signin">
+    <div class="signin_form">
+        <form [formGroup]="signinForm">
+            <h3>Login to your account</h3>
+
+            <!--email-->
+            <app-input
+                formControlName="email"
+                label="Email"
+                placeholder="Enter your email"
+                icon="assets/images/email.svg"
+                [invalidInputMessage]="
+                    emailNotProvided ? 'email required': 
+                    emailInvalid ? 'email invalid' : ''"
+            />
+
+            <!--password-->
+            <app-input
+                formControlName="password"
+                label="Password"
+                placeholder="Enter your password"
+                icon="assets/images/password.svg"
+                [invalidInputMessage]="passwordNotProvided ? 'password required': ''"
+            />
+
+            <div class="remember_me_and_forgot_password">
+                <div class="remember_me">
+                    <input id="remember_me" type="checkbox">
+                    <label for="remember_me">Remember me</label>
+                </div>
+
+                <div class="forgot_password">Forgot your password?</div>
+            </div>
+
+            <app-button
+                text="Login"
+                size="large"
+                (clickEvent)="handleLogin()"
+                [isDisabled]="!isSigninFormValid()"
+            />
+        </form>
+
+    </div>
+</div>

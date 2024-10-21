@@ -1,0 +1,52 @@
+@import "@/styles/_variables.scss";
+
+.input_container {
+  label {
+    font-weight: 500;
+    font-size: $--14px;
+    margin-bottom: 14px;
+  }
+
+  .input {
+    position: relative;
+
+    input {
+      box-sizing: border-box;
+      padding: 10px 12px 10px 34px;
+      border: 1px solid #d0d1d0;
+      border-radius: 8px;
+      font-size: 1rem;
+      color: #667085;
+      width: 100%;
+
+      &:focus {
+        outline: none;
+        border-color: $primary-bg;
+      }
+
+      &.no_icon {
+        padding-left: 12px;
+      }
+
+      &.invalid_input {
+        border-color: $error;
+      }
+    }
+
+    .icon {
+      position: absolute;
+      top: 50%;
+      left: 12px;
+      translate: 0 -50%;
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .invalid_input_message {
+    min-height: 20px;
+    margin: 0;
+    font-size: $--14px;
+    color: $error;
+  }
+}

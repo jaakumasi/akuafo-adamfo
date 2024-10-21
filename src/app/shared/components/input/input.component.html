@@ -1,0 +1,21 @@
+<div class="input_container">
+    <label [for]="inputId()">{{label()}}</label>
+
+    <div class="input">
+        <input 
+            [id]="inputId()"
+            [type]="inputType()"
+            [formControl]="formControl"
+            [placeholder]="placeholder()"
+            [class.no_icon]="!icon()"
+            [class.invalid_input]="invalidInputMessage()"
+            (blur)="onInputTouched()"
+        >
+
+        @if(icon()) {
+            <img class="icon" [src]="icon()" alt="">
+        }
+    </div>
+
+    <p class="invalid_input_message">{{invalidInputMessage()}}</p>
+</div>
