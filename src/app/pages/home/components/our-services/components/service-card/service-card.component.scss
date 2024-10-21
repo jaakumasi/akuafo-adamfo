@@ -1,0 +1,39 @@
+@import "@/styles/_variables.scss";
+
+.service_card {
+  width: 300px;
+  height: 300px;
+  border-radius: 16px;
+  position: relative;
+
+  .service_img {
+    width: 300px;
+    height: 300px;
+    border-radius: 16px;
+    transition: scale 0.3s ease-out;
+
+    &:hover {
+      scale: 1.02;
+    }
+  }
+
+  .service_name {
+    position: absolute;
+    bottom: 24px;
+    left: 16px;
+    color: white;
+    font-size: $--18px;
+  }
+
+  .goto_service {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 24px;
+    right: 16px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

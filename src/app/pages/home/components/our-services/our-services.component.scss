@@ -1,0 +1,26 @@
+@import '../../styles/mixins';
+
+.services {
+  padding: 48px 40px;
+
+  .title_and_description {
+    @include title_and_description;
+  }
+
+  .service_cards {
+    display: flex;
+    gap: 20px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    margin-bottom: 20px;
+
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+  }
+
+  .see_all_services {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

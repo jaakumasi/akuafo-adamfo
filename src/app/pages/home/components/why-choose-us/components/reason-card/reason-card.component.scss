@@ -1,0 +1,27 @@
+@import '@/styles/_variables.scss';
+@import '@/styles/_breakpoints.scss';
+
+.reason_card {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 64px;
+
+    img {
+        width: 671px;
+        height: 354px;
+    }
+
+    .reason {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        p.title {
+            font-size: $--24px;
+        }
+
+        p.description {
+            line-height: $--32px;
+        }
+    }
+}

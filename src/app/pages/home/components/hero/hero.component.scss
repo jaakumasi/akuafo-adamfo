@@ -1,0 +1,58 @@
+@import "@/styles/_breakpoints.scss";
+@import "@/styles/_variables.scss";
+
+.hero {
+  position: relative;
+  overflow: hidden;
+
+  .hero_bg {
+    width: 100%;
+    height: 495px;
+    object-fit: cover;
+    animation: breath 20s ease-in-out infinite;
+
+    @keyframes breath {
+      0%,
+      100% {
+        scale: 1;
+      }
+      50% {
+        scale: 1.2;
+      }
+    }
+
+    @include xxl {
+      height: 620px;
+    }
+  }
+
+  .hero_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  .overlay_text {
+    position: absolute;
+    left: 50px;
+    top: 50%;
+    translate: 0 -50%;
+    color: white;
+    gap: 20px;
+
+    h1 {
+      font-weight: 400;
+      font-size: $--42px;
+      line-height: $--48px;
+      width: 1014px;
+    }
+
+    p {
+      width: 608px;
+      line-height: $--28px;
+    }
+  }
+}

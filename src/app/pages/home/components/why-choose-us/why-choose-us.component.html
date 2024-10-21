@@ -1,0 +1,13 @@
+<div class="why_choose_us">
+    <div class="title_and_description">
+        <h1>Why Choose Us?</h1>
+
+        <p>We recognize that your farm is far more than a business—it's the heart of your livelihood and the foundation of your legacy. We understand the deep connection you have to your land and the immense dedication it takes to sustain it.</p>
+    </div>
+
+    <div class="reasons">
+        @for (reason of reasons; track $index) {
+            <reason-card [reason]="reason" [flexFlow]="$index % 2 === 0 ? 'row': 'row-reverse'"/>
+        }
+    </div>
+</div>

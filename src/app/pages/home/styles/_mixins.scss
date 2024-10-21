@@ -1,0 +1,17 @@
+@import '@/styles/_breakpoints.scss';
+@import '@/styles/_variables.scss';
+
+@mixin title_and_description {
+  text-align: center;
+  margin-bottom: 32px;
+
+  p {
+    width: 90%;
+
+    @include xxl {
+      width: 1360px;
+      margin: 0 auto;
+      line-height: $--32px;
+    }
+  }
+}
