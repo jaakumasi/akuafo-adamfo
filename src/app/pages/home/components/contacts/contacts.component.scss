@@ -1,0 +1,68 @@
+@import "@/styles/_variables.scss";
+@import "@/styles/_breakpoints.scss";
+
+.contacts {
+  padding: 60px;
+  background-color: white;
+
+  .content {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    text-align: center;
+
+    @include xxl {
+      width: 1050px;
+    }
+
+    p.motto,
+    p.mission {
+      font-weight: 500;
+      margin: 0;
+    }
+
+    h1 {
+      font-weight: 600;
+      font-size: $--32px;
+      margin: 0;
+    }
+
+    p.copyright {
+      margin-bottom: 60px;
+    }
+  }
+
+  footer {
+    width: 80%;
+    margin: 0 auto;
+    border-top: 1px solid rgb(161, 161, 161);
+    padding: 38px 0;
+    display: flex;
+    justify-content: space-between;
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        gap: 32px;
+    }
+
+    .socials {
+        display: flex;
+        gap: 20px;
+        
+
+        .social {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #7C7C7C;
+        }
+    }
+  }
+}
