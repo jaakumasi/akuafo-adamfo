@@ -1,0 +1,17 @@
+@import "../../styles/mixins";
+@import "@/styles/_breakpoints.scss";
+
+.faqs {
+  box-sizing: border-box;
+  padding: 48px 40px;
+  width: 90%;
+  margin: 0 auto;
+
+  @include xxl {
+    width: 1024px;
+  }
+
+  .title_and_description {
+    @include title_and_description;
+  }
+}

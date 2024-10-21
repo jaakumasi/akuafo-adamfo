@@ -1,1 +1,13 @@
-<p>faqs works!</p>
+<div class="faqs">
+    <div class="title_and_description">
+        <h1>Frequently Asked Questions</h1>
+
+        <p>Got questions? We’ve got answers! Explore our Frequently Asked Questions to learn more about how Akuafo Adamfo can support your farming journey.</p>
+    </div>
+
+    <div class="faqs">
+        @for (question of FAQs; track $index) {
+            <faq-card [faq]="question" />
+        }
+    </div>
+</div>

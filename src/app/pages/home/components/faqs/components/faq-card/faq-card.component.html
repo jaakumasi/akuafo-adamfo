@@ -1,0 +1,14 @@
+<div 
+    class="faq_card"
+    [class.expanded]="expanded()"
+    (click)="handleAnswerToggle()"
+    (keydown.enter)="handleAnswerToggle()"
+    tabindex="0"
+>
+    <div class="question">
+        <div>{{faq().question}}</div>
+        <img src="assets/images/{{expanded() ? 'close' : 'plus'}}.svg" alt="">
+    </div>
+
+    <div class="answer">{{faq().answer}}</div>
+</div>
