@@ -9,7 +9,7 @@
                 label="Email"
                 placeholder="Enter your email"
                 icon="assets/images/email.svg"
-                [invalidInputMessage]="emailNotProvided ? 'email required': ''"
+                [invalidInputMessage]="emailNotProvided ? 'required': ''"
             />
 
             <!--password-->
@@ -18,18 +18,45 @@
                 label="Password"
                 placeholder="Enter your password"
                 icon="assets/images/password.svg"
-                [invalidInputMessage]="passwordNotProvided ? 'password required': ''"
+                [invalidInputMessage]="passwordNotProvided ? 'required': ''"
             />
 
-            <!--confirm password-->
+            <!-- first name-->
             <app-input
-                formControlName="confirmPassword"
-                label="Confirm Password"
-                placeholder="Enter your password"
+                formControlName="firstName"
+                label="First Name"
+                placeholder="Enter your first name"
                 icon="assets/images/password.svg"
-                [invalidInputMessage]="passwordMismatch ? 'passwords do not match': ''"
+                [invalidInputMessage]="firstNameNotProvided ? 'required': ''"
             />
 
+             <!-- last name-->
+            <app-input
+                formControlName="lastName"
+                label="Last Name"
+                placeholder="Enter your last name"
+                icon="assets/images/password.svg"
+                [invalidInputMessage]="lastNameNotProvided ? 'required': ''"
+            />
+
+             <!-- location -->
+            <app-input
+                formControlName="location"
+                label="Location"
+                placeholder="Enter your location"
+                icon="assets/images/password.svg"
+                [invalidInputMessage]="locationNotProvided ? 'required': ''"
+            />
+
+             <!-- telephone -->
+            <app-input
+                formControlName="telephoneNumber"
+                label="Phone"
+                placeholder="Enter your phone"
+                icon="assets/images/password.svg"
+                [invalidInputMessage]="phoneNotProvided ? 'required': ''"
+            />
+            
             <app-button
                 text="Create Account"
                 size="large"

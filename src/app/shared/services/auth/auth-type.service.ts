@@ -1,6 +1,6 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { AuthType } from '../types';
+import { AuthType } from '../../types';
 
 const signinRoute = 'signin';
 const signupRoute = 'signup';

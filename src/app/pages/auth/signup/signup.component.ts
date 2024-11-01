@@ -1,12 +1,13 @@
 import { ButtonComponent } from '@/shared/components/button/button.component';
 import { InputComponent } from '@/shared/components/input/input.component';
+import { AuthenticationService } from '@/shared/services/auth/authentication.service';
+import { SignupRequest } from '@/shared/types';
 import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Subscription } from 'rxjs';
-import { emailValidator } from '../validators/email.validator';
-import { passwordMatchValidator } from '../validators/password-match.validator';
 import { Router } from '@angular/router';
-import { APP_ROUTES } from '@/shared/components/constants';
+import { Subscription } from 'rxjs';
+import emailValidator from '../validators/email.validator';
+import phoneNumberValidator from '../validators/phone-number.validator';
 
 @Component({
   selector: 'app-signup',
@@ -18,24 +19,30 @@ import { APP_ROUTES } from '@/shared/components/constants';
 export class SignupComponent implements OnInit, OnDestroy {
   private readonly formBuilder = inject(FormBuilder);
   private readonly router = inject(Router);
+  private readonly authenticationService = inject(AuthenticationService);
 
   protected signupForm = this.formBuilder.group({
     email: ['', [Validators.required, emailValidator]],
     password: ['', [Validators.required]],
-    confirmPassword: ['', [Validators.required]],
+    firstName: ['', [Validators.required]],
+    lastName: ['', [Validators.required]],
+    location: ['', [Validators.required]],
+    telephoneNumber: ['', [Validators.required, phoneNumberValidator]],
   });
 
   protected isSignupFormValid = signal(false);
 
   private signupFormSubscription?: Subscription;
 
+  private signupApiSubscription?: Subscription;
+
   ngOnInit(): void {
     this.subToFormValueChanges();
-    this.addPasswordMatchValidator();
   }
 
   ngOnDestroy(): void {
     this.signupFormSubscription?.unsubscribe();
+    this.signupApiSubscription?.unsubscribe();
   }
 
   private subToFormValueChanges() {
@@ -46,14 +53,16 @@ export class SignupComponent implements OnInit, OnDestroy {
     );
   }
 
-  private addPasswordMatchValidator() {
-    this.signupForm.addValidators(passwordMatchValidator);
-  }
-
   protected async handleSignup() {
-    // TODO: signup request
+    const reqBody = this.signupForm.value as any as SignupRequest;
 
-    await this.router.navigateByUrl(APP_ROUTES.SIGNIN);
+    reqBody.telephoneNumber = Number(reqBody.telephoneNumber);
+
+    this.signupApiSubscription = this.authenticationService
+      .signup(reqBody)
+      .subscribe((r) => console.log(r));
+
+    // await this.router.navigateByUrl(APP_ROUTES.SIGNIN);
   }
 
   get emailControl() {
@@ -68,20 +77,48 @@ export class SignupComponent implements OnInit, OnDestroy {
     return this.signupForm.get('password');
   }
 
-  get confirmPasswordControl() {
-    return this.signupForm.get('confirmPassword');
-  }
-
   get passwordNotProvided() {
     return (
       this.passwordControl?.touched && this.passwordControl.hasError('required')
     );
   }
 
-  get passwordMismatch() {
+  get firstNameControl() {
+    return this.signupForm.get('firstName');
+  }
+
+  get firstNameNotProvided() {
     return (
-      this.confirmPasswordControl?.touched &&
-      this.signupForm.hasError('passwordMismatch')
+      this.firstNameControl?.touched &&
+      this.firstNameControl.hasError('required')
     );
+  }
+
+  get lastNameControl() {
+    return this.signupForm.get('lastName');
+  }
+
+  get lastNameNotProvided() {
+    return (
+      this.lastNameControl?.touched && this.lastNameControl.hasError('required')
+    );
+  }
+
+  get locationControl() {
+    return this.signupForm.get('location');
+  }
+
+  get locationNotProvided() {
+    return (
+      this.locationControl?.touched && this.locationControl.hasError('required')
+    );
+  }
+
+  get phoneControl() {
+    return this.signupForm.get('telephoneNumber');
+  }
+
+  get phoneNotProvided() {
+    return this.phoneControl?.touched && this.phoneControl.hasError('required');
   }
 }
