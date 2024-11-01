@@ -20,9 +20,15 @@
   }
 
   &.expanded {
-    height: calc-size(auto, size);
+    height: fit-content;
     background-color: #f9fafb;
     box-shadow: 0 0 2px rgba(218, 218, 218, 0.719);
+  }
+
+  @supports (height: calc-size(auto, size)) {
+    &.expanded {
+      height: calc-size(auto, size);
+    }
   }
 
   .question {
