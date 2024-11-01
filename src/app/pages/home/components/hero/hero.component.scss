@@ -43,16 +43,39 @@
     color: white;
     gap: 20px;
 
+    @include max-md {
+      left: 0;
+      padding: 20px;
+    }
+
     h1 {
       font-weight: 400;
       font-size: $--42px;
       line-height: $--48px;
       width: 1014px;
+
+      @include max-md {
+        width: unset;
+        max-width: 100%;
+        font-size: $--24px;
+        line-height: $--38px;
+      }
+
+      @include md {
+        width: unset;
+        max-width: 90%;
+      }
     }
 
     p {
       width: 608px;
       line-height: $--28px;
+
+      @include max-md {
+        width: unset;
+        max-width: 100%;
+        line-height: $--28px;
+      }
     }
   }
 }

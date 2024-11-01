@@ -1,5 +1,5 @@
-@import '@/styles/_breakpoints.scss';
-@import '@/styles/_variables.scss';
+@import "@/styles/_breakpoints.scss";
+@import "@/styles/_variables.scss";
 
 @mixin title_and_description {
   text-align: center;
@@ -12,5 +12,15 @@
     @include xxl {
       line-height: $--32px;
     }
+  }
+}
+
+@mixin small_screen_padding {
+  @include max-md {
+    padding: 35px 20px;
+  }
+
+  @include md {
+    padding: 35px 25px;
   }
 }

@@ -1,9 +1,12 @@
+@import "../../styles/mixins";
 @import "@/styles/_variables.scss";
 @import "@/styles/_breakpoints.scss";
 
 .contacts {
   padding: 60px;
   background-color: white;
+
+  @include small_screen_padding;
 
   .content {
     width: 80%;
@@ -13,6 +16,10 @@
     align-items: center;
     gap: 32px;
     text-align: center;
+
+    @include max-md {
+      width: 100%;
+    }
 
     @include xxl {
       width: 1050px;
@@ -43,26 +50,55 @@
     display: flex;
     justify-content: space-between;
 
+    @include max-md {
+      width: 100%;
+      padding: 30px 0;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
     nav ul {
-        list-style: none;
-        display: flex;
-        gap: 32px;
+      list-style: none;
+      display: flex;
+      gap: 32px;
+
+      @include max-md {
+        padding: 0;
+      }
+
+      @include md {
+        flex-direction: column;
+      }
+
+      li:hover {
+        cursor: pointer;
+      }
     }
 
     .socials {
-        display: flex;
-        gap: 20px;
-        
+      display: flex;
+      gap: 20px;
 
-        .social {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 2px solid #7C7C7C;
+      @include md {
+        align-items: center;
+      }
+
+      .social {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid #7c7c7c;
+        transition: scale .2s ease-in;
+
+        &:hover {
+          scale: 1.1;
+          cursor: pointer;
         }
+      }
     }
   }
 }

@@ -1,3 +1,5 @@
+@import '@/styles/_breakpoints.scss';
+
 .auth {
   img {
     position: fixed;
@@ -7,5 +9,13 @@
     width: 100%;
     background-position: center;
     object-fit: contain;
+
+    @include sm {
+      bottom: 0;
+    }
+
+    @include md {
+      bottom: 0;
+    }
   }
 }

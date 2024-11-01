@@ -1,10 +1,15 @@
 @import "@/styles/_mixins.scss";
+@import "@/styles/_breakpoints.scss";
 
 header {
   display: flex;
   justify-content: space-between;
   padding: 16px 40px;
   background-color: white;
+
+  @include max-md {
+    padding: 16px 20px;
+  }
 
   .logo {
     display: flex;
@@ -55,12 +60,20 @@ header {
       &:hover {
         cursor: pointer;
       }
+
+      @include max-md {
+        display: none;
+      }
     }
   }
 
   .sign_type {
     span {
       margin-right: 12px;
+
+      @include max-md {
+        display: none;
+      }
     }
   }
 }
