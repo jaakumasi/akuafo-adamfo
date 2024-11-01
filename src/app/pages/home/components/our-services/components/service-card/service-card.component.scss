@@ -1,4 +1,5 @@
 @import "@/styles/_variables.scss";
+@import "@/styles/_breakpoints.scss";
 
 .service_card {
   width: 300px;
@@ -6,11 +7,21 @@
   border-radius: 16px;
   position: relative;
 
+  @include max-md {
+    width: 250px;
+    height: 250px;
+  }
+
   .service_img {
     width: 300px;
     height: 300px;
     border-radius: 16px;
     transition: scale 0.3s ease-out;
+
+    @include max-md {
+      width: 250px;
+      height: 250px;
+    }
 
     &:hover {
       scale: 1.02;
@@ -23,6 +34,10 @@
     left: 16px;
     color: white;
     font-size: $--18px;
+
+    @include max-md {
+      bottom: 10px;
+    }
   }
 
   .goto_service {

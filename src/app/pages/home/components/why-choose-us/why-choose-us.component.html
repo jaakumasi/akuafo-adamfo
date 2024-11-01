@@ -7,7 +7,11 @@
 
     <div class="reasons">
         @for (reason of reasons; track $index) {
-            <reason-card [reason]="reason" [flexFlow]="$index % 2 === 0 ? 'row': 'row-reverse'"/>
+            <reason-card 
+                [reason]="reason" 
+                [flexFlow]="$even ? 'row': 'row-reverse'"
+                [class.last]="$last"
+            />
         }
     </div>
 </section>

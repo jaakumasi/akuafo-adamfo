@@ -1,27 +1,58 @@
-@import '@/styles/_variables.scss';
-@import '@/styles/_breakpoints.scss';
+@import "@/styles/_variables.scss";
+@import "@/styles/_breakpoints.scss";
 
 .reason_card {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 64px;
+
+  @include max-md {
+    flex-direction: column !important;
+    gap: 0;
+    margin-bottom: 48px;
+  }
+
+  @include md {
+    flex-direction: column !important;
+    gap: 0;
+    margin-bottom: 40px;
+  }
+
+  img {
+    width: 671px;
+
+    @include max-md {
+      width: 100%;
+    }
+
+    @include md {
+      width: 100%;
+    }
+  }
+
+  .reason {
     display: flex;
-    gap: 32px;
-    margin-bottom: 64px;
+    flex-direction: column;
+    justify-content: center;
 
-    img {
-        width: 671px;
-        height: 354px;
+    @include md {
+      padding: 0 8px;
     }
 
-    .reason {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+    p.title {
+      font-size: $--24px;
 
-        p.title {
-            font-size: $--24px;
-        }
+      @include max-md {
+        margin: 24px 0 0;
+      }
 
-        p.description {
-            line-height: $--32px;
-        }
+      @include md {
+        margin: 32px 0 0;
+      }
     }
+
+    p.description {
+      line-height: $--32px;
+    }
+  }
 }

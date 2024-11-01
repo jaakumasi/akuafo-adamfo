@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ReasonCardComponent } from './components/reason-card/reason-card.component';
-import { ReasonToChooseUs } from './typess';
+import { ReasonToChooseUs } from './types';
 
 @Component({
   selector: 'why-choose-us',

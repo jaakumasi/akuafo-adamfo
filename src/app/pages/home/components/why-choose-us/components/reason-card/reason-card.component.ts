@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { ReasonToChooseUs } from '../../typess';
+import { ReasonToChooseUs } from '../../types';
 import { NgStyle } from '@angular/common';
 
 @Component({

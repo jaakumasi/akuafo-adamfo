@@ -1,8 +1,11 @@
 @import '../../styles/mixins';
+@import '@/styles/_breakpoints.scss';
 
 .services {
   padding: 48px 40px;
 
+  @include small_screen_padding;
+  
   .title_and_description {
     @include title_and_description;
   }
@@ -13,6 +16,10 @@
     overflow-x: scroll;
     overflow-y: hidden;
     margin-bottom: 20px;
+
+    @include max-md {
+      // gap: 5px;
+    }
 
     &::-webkit-scrollbar {
       width: 0;

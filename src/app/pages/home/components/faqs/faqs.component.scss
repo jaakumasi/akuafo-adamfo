@@ -7,6 +7,17 @@
   width: 90%;
   margin: 0 auto;
 
+  @include small_screen_padding;
+
+  @include max-md {
+    width: 100%;
+    padding: 48px 10px;
+  }
+
+  @include md {
+    width: 100%;
+  }
+
   @include xxl {
     width: 1024px;
   }

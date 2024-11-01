@@ -5,11 +5,17 @@
   background-color: #f9ffec;
   padding: 70px 40px;
 
+  @include small_screen_padding;
+
   .title_and_description {
     @include title_and_description;
   }
 
   .reasons {
+    .last {
+      margin-bottom: 0;
+    }
+
     @include xxl {
       width: 1364px;
       margin: 0 auto;
