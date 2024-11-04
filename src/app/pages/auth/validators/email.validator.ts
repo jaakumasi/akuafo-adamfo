@@ -5,7 +5,7 @@ const emailValidator = (
 ): ValidationErrors | null => {
   const email = control.value;
   const emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/i;
-  if (!emailRegex.test(email)) return { invalidEmail: true };
+  if (!emailRegex.test(email)) return { invalidEmailPattern: true };
   return null;
 };
 

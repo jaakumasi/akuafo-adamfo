@@ -9,7 +9,7 @@
                 label="Email"
                 placeholder="Enter your email"
                 icon="assets/images/email.svg"
-                [invalidInputMessage]="emailNotProvided ? 'required': ''"
+                [invalidInputMessage]="emailNotProvided ? 'Required': emailInvalid ? 'Invalid email' : ''"
             />
 
             <!--password-->
@@ -18,7 +18,7 @@
                 label="Password"
                 placeholder="Enter your password"
                 icon="assets/images/password.svg"
-                [invalidInputMessage]="passwordNotProvided ? 'required': ''"
+                [invalidInputMessage]="passwordNotProvided ? 'Required': passwordCriteriaMismatch ? 'At least one number, one upper and lower case and special character required. Minimum of 8 characters' : ''"
             />
 
             <!-- first name-->
@@ -26,8 +26,8 @@
                 formControlName="firstName"
                 label="First Name"
                 placeholder="Enter your first name"
-                icon="assets/images/password.svg"
-                [invalidInputMessage]="firstNameNotProvided ? 'required': ''"
+                icon="assets/images/person.png"
+                [invalidInputMessage]="firstNameNotProvided ? 'Required': ''"
             />
 
              <!-- last name-->
@@ -35,8 +35,8 @@
                 formControlName="lastName"
                 label="Last Name"
                 placeholder="Enter your last name"
-                icon="assets/images/password.svg"
-                [invalidInputMessage]="lastNameNotProvided ? 'required': ''"
+                icon="assets/images/person.png"
+                [invalidInputMessage]="lastNameNotProvided ? 'Required': ''"
             />
 
              <!-- location -->
@@ -44,8 +44,8 @@
                 formControlName="location"
                 label="Location"
                 placeholder="Enter your location"
-                icon="assets/images/password.svg"
-                [invalidInputMessage]="locationNotProvided ? 'required': ''"
+                icon="assets/images/location.png"
+                [invalidInputMessage]="locationNotProvided ? 'Required': ''"
             />
 
              <!-- telephone -->
@@ -53,8 +53,8 @@
                 formControlName="telephoneNumber"
                 label="Phone"
                 placeholder="Enter your phone"
-                icon="assets/images/password.svg"
-                [invalidInputMessage]="phoneNotProvided ? 'required': ''"
+                icon="assets/images/phone.png"
+                [invalidInputMessage]="phoneNotProvided ? 'Required': phoneNumberInvalid ? 'Invalid number' : ''"
             />
             
             <app-button

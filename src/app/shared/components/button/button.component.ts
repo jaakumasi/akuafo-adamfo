@@ -17,4 +17,5 @@ export class ButtonComponent {
   public size = input<ButtonSize>('small');
   public clickEvent = output<null>();
   public isDisabled = input<boolean>(false);
+  public isLoading = input<boolean>(false);
 }

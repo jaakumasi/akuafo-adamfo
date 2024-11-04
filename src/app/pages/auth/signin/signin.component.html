@@ -37,8 +37,8 @@
                 size="large"
                 (clickEvent)="handleLogin()"
                 [isDisabled]="!isSigninFormValid()"
+                [isLoading]="isMakingApiCall()"
             />
         </form>
-
     </div>
 </div>

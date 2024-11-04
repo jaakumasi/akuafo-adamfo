@@ -1,15 +1,11 @@
 import { Injectable, signal } from '@angular/core';
+import { UserDetails } from '../types';
 
-interface UserDetails {
-  name: string;
-  email: string;
-  profilePicUrl?: string;
-}
 
 @Injectable({
   providedIn: 'root',
 })
-export class UserDetailsService {
+export class UserDetailsStateService {
   private userDetails = signal<UserDetails | undefined>(undefined);
 
   public getUserDetails(): UserDetails | undefined {

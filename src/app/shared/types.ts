@@ -13,3 +13,20 @@ export interface SignupRequest {
   location: string;
   telephoneNumber: number;
 }
+
+export interface UserDetails {
+  fullName: string;
+  email: string;
+  userId: string;
+  token: string;
+  profileUrl?: string;
+}
+
+export interface ToastState {
+  showToast: boolean;
+  toastMessage: string;
+  toastVariant: ToastVariant;
+  timeout?: number;
+};
+
+export type ToastVariant = 'success' | 'error' | 'info';

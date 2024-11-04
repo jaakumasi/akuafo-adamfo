@@ -1,0 +1,19 @@
+<div class="email_verification">
+    <h3>Verify Email</h3>
+
+    <p>Enter token</p>
+
+    <div class="otp">
+        <otp-input (otpReadyStateEmitter)="onOTPReady($event)"/>
+    </div>
+
+    <div class="button">
+        <app-button 
+            text="Verify" 
+            size="large"
+            (clickEvent)="handleOTPVerification()"
+            [isDisabled]="isVerifyButtonDisabled()"
+            [isLoading]="isMakingApiCall()"
+        />
+    </div>
+</div>

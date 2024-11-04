@@ -3,12 +3,9 @@ import { AbstractControl, ValidationErrors } from '@angular/forms';
 const phoneNumberValidator = (
   control: AbstractControl
 ): ValidationErrors | null => {
-  const phoneNumber = control.get('phone')?.value;
-
-  const phonePattern = /^0[0-9]{9}$/;
-
-  if (phoneNumber?.touched && phonePattern.test(phoneNumber))
-    return { phoneNumber: true };
+  const phoneNumber = control.value;
+  const phonePattern = /^0\d{9}$/;
+  if (!phonePattern.test(phoneNumber)) return { invalidPhoneNumber: true };
   return null;
 };
 

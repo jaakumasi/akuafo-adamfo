@@ -4,31 +4,33 @@
         <span>AKUAFO ADAMFO</span>
     </div>
 
-    @if (user()) {
-        <div class="authed_user">
-            <div class="notification">
-                <img src="assets/images/notification_icon.svg" alt="">
+    @if (!hideAuthButton()) {
+        @if (user()) {
+            <div class="authed_user">
+                <div class="notification">
+                    <img src="assets/images/notification_icon.svg" alt="">
+                </div>
+    
+                <div class="profile_icon">
+                    @if (user()!.profileUrl) {
+                        <img [src]="user()!.profileUrl" alt="" class="profile_pic">
+                    }
+                    @else {
+                        <div class="profile_initials">{{user()!.fullName.split(" ")[0][0]}}</div>
+                    }
+                </div>
+    
+               <div class="profile_dropdown">
+                    <div class="user_name">{{user()!.fullName}}</div>
+                    <img src="assets/images/dropdown_icon.svg" alt="">
+               </div>
             </div>
-
-            <div class="profile_icon">
-                @if (user()!.profilePicUrl) {
-                    <img [src]="user()!.profilePicUrl" alt="" class="profile_pic">
-                }
-                @else {
-                    <div class="profile_initials">{{user()!.name.split(" ")[0][0]}}</div>
-                }
+        }
+        @else {
+            <div class="sign_type">
+                <span>{{authType() === 'signin' ? "Don't have an account?": "Already have an account?"}}</span>
+                <app-button (clickEvent)="handleAuthTypeChange()" [text]="authType() === 'signin' ? 'Sign up' : 'Sign in'"/>
             </div>
-
-           <div class="profile_dropdown">
-                <div class="user_name">{{user()!.name}}</div>
-                <img src="assets/images/dropdown_icon.svg" alt="">
-           </div>
-        </div>
-    }
-    @else {
-        <div class="sign_type">
-            <span>{{authType() === 'signin' ? "Don't have an account?": "Already have an account?"}}</span>
-            <app-button (clickEvent)="handleAuthTypeChange()" [text]="authType() === 'signin' ? 'Sign up' : 'Sign in'"/>
-        </div>
+        }
     }
 </header>

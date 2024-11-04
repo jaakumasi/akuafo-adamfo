@@ -1,0 +1,22 @@
+@import '@/styles/_variables.scss';
+
+.otp_inputs_container {
+  margin: 10px auto;
+  width: 95%;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 5%;
+
+  input {
+    outline: none;
+    text-align: center;
+    padding: 0.5rem;
+    border-width: 0 0 2px 0;
+    font-size: 1.5rem;
+    color: $primary-color;
+
+    &:focus {
+      border-color: $primary-color;
+    }
+  }
+}

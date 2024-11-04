@@ -1,0 +1,19 @@
+@import "../styles/mixins";
+
+.email_verification {
+  @include auth_form_container;
+
+  h3 {
+    @include auth_form_header;
+  }
+
+  p {
+    text-align: center;
+    margin: 0;
+  }
+
+  .otp,
+  .button {
+    margin-top: 20px;
+  }
+}

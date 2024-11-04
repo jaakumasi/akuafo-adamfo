@@ -23,10 +23,12 @@
 
     @include max-md {
       width: 100%;
+      min-height: 180px;
     }
 
     @include md {
       width: 100%;
+      min-height: 400px;
     }
   }
 

@@ -1,0 +1,44 @@
+<div>
+  <div class="otp_inputs_container">
+    <input
+      maxlength="1"
+      [(ngModel)]="otpInput1"
+      (ngModelChange)="onOtpChange($event, otp2)"
+    />
+
+    <input
+      maxlength="1"
+      [(ngModel)]="otpInput2"
+      (ngModelChange)="onOtpChange($event, otp3)"
+      #otp2
+    />
+
+    <input
+      maxlength="1"
+      [(ngModel)]="otpInput3"
+      (ngModelChange)="onOtpChange($event, otp4)"
+      #otp3
+    />
+
+    <input
+      maxlength="1"
+      [(ngModel)]="otpInput4"
+      (ngModelChange)="onOtpChange($event, otp5)"
+      #otp4
+    />
+
+    <input
+      maxlength="1"
+      [(ngModel)]="otpInput5"
+      (ngModelChange)="onOtpChange($event, otp6)"
+      #otp5
+    />
+
+    <input
+      maxlength="1"
+      [(ngModel)]="otpInput6"
+      (ngModelChange)="onOtpChange($event, null)"
+      #otp6
+    />
+  </div>
+</div>

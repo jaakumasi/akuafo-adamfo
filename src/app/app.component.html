@@ -1,11 +1,7 @@
 <div class="app">
+    <toast />
+
     <app-header />
+    
     <router-outlet />
 </div>
-
-
-@for (item of list; track $index) {
-    <div [ngClass]="$odd ? 'odd' : ''">
-        {{ item }}
-    </div>
-}

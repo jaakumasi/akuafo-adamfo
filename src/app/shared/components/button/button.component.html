@@ -4,7 +4,11 @@
     [class.primary]="variant() === 'primary'"
     [class.small]="size() === 'small'"
     [class.large]="size() === 'large'"
-    [class.disabled]="isDisabled()"
+    [class.disabled]="isDisabled() || isLoading()"
 >
+    @if (isLoading()) {
+        <img src="assets/images/loader.svg" alt="loader">
+    }
+
     {{text()}}
 </button>

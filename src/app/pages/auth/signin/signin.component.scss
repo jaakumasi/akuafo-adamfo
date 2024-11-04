@@ -1,5 +1,6 @@
 @import "../styles/mixins";
 @import "@/styles/_variables.scss";
+@import "@/styles/_breakpoints.scss";
 
 .signin {
   .signin_form {
@@ -16,6 +17,10 @@
       margin-bottom: 20px;
       font-size: $--14px;
       font-weight: 500;
+
+      @include max-md {
+        font-size: $--12px;
+      }
 
       .remember_me {
         display: flex;
