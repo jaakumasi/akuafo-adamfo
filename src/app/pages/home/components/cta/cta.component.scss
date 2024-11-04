@@ -15,7 +15,7 @@
     object-fit: cover;
 
     @include max-md {
-      height: 250px;
+      height: 280px;
     }
   }
 
@@ -43,7 +43,8 @@
       top: 0;
       translate: 0;
       padding: 15px 20px;
-      gap: 10px;
+      gap: 0;
+      justify-content: space-between;
       left: 0;
     }
 
