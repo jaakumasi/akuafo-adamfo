@@ -31,6 +31,10 @@ button {
     width: fit-content;
   }
 
+  &.medium {
+    min-width: 200px;
+  }
+
   &.large {
     width: 100%;
   }

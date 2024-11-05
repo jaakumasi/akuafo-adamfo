@@ -2,7 +2,7 @@ import { Component, input, output } from '@angular/core';
 
 type ButtonVariant = 'primary';
 
-type ButtonSize = 'small' | 'large';
+type ButtonSize = 'small' | 'medium' | 'large';
 
 @Component({
   selector: 'app-button',
