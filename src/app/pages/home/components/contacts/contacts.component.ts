@@ -10,4 +10,10 @@ import { ButtonComponent } from '../../../../shared/components/button/button.com
 })
 export class ContactsComponent {
   protected year = new Date().getFullYear();
+
+  protected handleSendToMail() {
+    const a = document.createElement('a');
+    a.href = 'mailto:ehanson787@gmail.com?subject=Akuafo%20Adamfo';
+    a.click();
+  }
 }
