@@ -22,7 +22,7 @@ export const DEFAULT_TOAST_TIMEOUT = 3000;
   imports: [NgClass],
   templateUrl: './toast.component.html',
   styleUrl: './toast.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ToastComponent implements OnDestroy {
   private readonly toastState = inject(ToastService);
@@ -37,6 +37,8 @@ export class ToastComponent implements OnDestroy {
   toastEffectRef = effect(
     () => {
       const toastState = this.toastState.getToastState();
+
+      console.log(toastState)
 
       if (toastState.showToast) {
         this.text.set(toastState.toastMessage);

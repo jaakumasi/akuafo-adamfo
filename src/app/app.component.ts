@@ -27,8 +27,6 @@ export class AppComponent implements OnInit {
   private initializeStateWithLocalStorageData() {
     const user = this.localStorageService.getLocalItem(LOCAL_STORAGE_KEYS.USER);
 
-    console.log(user)
-
     if (!user) return;
 
     this.userDetailsStateService.updateUserDetails(user);
