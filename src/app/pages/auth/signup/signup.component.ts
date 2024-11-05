@@ -1,6 +1,10 @@
 import { ButtonComponent } from '@/shared/components/button/button.component';
 import { InputComponent } from '@/shared/components/input/input.component';
-import { APP_ROUTES, LOCAL_STORAGE_KEYS } from '@/shared/constants';
+import {
+  APP_ROUTES,
+  LOCAL_STORAGE_KEYS,
+  TOAST_MESSAGES,
+} from '@/shared/constants';
 import { AuthenticationService } from '@/shared/services/auth/authentication.service';
 import { LocalStorageService } from '@/shared/services/local-storage.service';
 import { ToastSetupService } from '@/shared/services/toast-setup.service';
@@ -116,9 +120,13 @@ export class SignupComponent implements OnInit, OnDestroy {
   private handleSingupError(error: HttpErrorResponse) {
     this.onRequestEnd();
 
-    const errorMessage = error.error.message[0];
+    const errorMessage = error.error.message;
 
-    this.toastSetupService.setupToast(true, errorMessage, 'error');
+    this.toastSetupService.setupToast(
+      true,
+      errorMessage ? errorMessage[0] : TOAST_MESSAGES.NETWORK_ERROR,
+      'error'
+    );
   }
 
   get emailControl() {

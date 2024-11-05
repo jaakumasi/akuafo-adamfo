@@ -1,4 +1,11 @@
-import { Component, forwardRef, inject, input, OnInit } from '@angular/core';
+import {
+  Component,
+  forwardRef,
+  inject,
+  input,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import {
   ControlValueAccessor,
   FormBuilder,
@@ -22,7 +29,7 @@ import { Subscription } from 'rxjs';
     },
   ],
 })
-export class InputComponent implements ControlValueAccessor, OnInit {
+export class InputComponent implements ControlValueAccessor, OnInit, OnDestroy {
   private readonly formBuilder = inject(FormBuilder);
 
   public initialValue = input<string>('');
@@ -34,7 +41,7 @@ export class InputComponent implements ControlValueAccessor, OnInit {
   public invalidInputMessage = input('');
 
   protected formControl!: FormControl;
-  
+
   private formControlSubscription?: Subscription;
 
   ngOnInit(): void {
@@ -45,6 +52,10 @@ export class InputComponent implements ControlValueAccessor, OnInit {
         this.onChange(value);
       }
     );
+  }
+
+  ngOnDestroy(): void {
+    this.formControlSubscription?.unsubscribe();
   }
 
   onChange = (value: string) => {};

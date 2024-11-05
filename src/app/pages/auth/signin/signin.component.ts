@@ -1,6 +1,10 @@
 import { ButtonComponent } from '@/shared/components/button/button.component';
 import { InputComponent } from '@/shared/components/input/input.component';
-import { APP_ROUTES, LOCAL_STORAGE_KEYS } from '@/shared/constants';
+import {
+  APP_ROUTES,
+  LOCAL_STORAGE_KEYS,
+  TOAST_MESSAGES,
+} from '@/shared/constants';
 import { AuthenticationService } from '@/shared/services/auth/authentication.service';
 import { LocalStorageService } from '@/shared/services/local-storage.service';
 import { ToastSetupService } from '@/shared/services/toast-setup.service';
@@ -80,7 +84,9 @@ export class SigninComponent implements OnInit, OnDestroy {
     this.signinApiSubscription = this.authenticationService
       .signin(reqBody)
       .subscribe({
-        next: (response) => this.handleSigninSuccess(response),
+        next: (response) => {
+          this.handleSigninSuccess(response);
+        },
         error: (error) => this.handleSigninError(error),
       });
   }
@@ -113,8 +119,13 @@ export class SigninComponent implements OnInit, OnDestroy {
   private handleSigninError(error: HttpErrorResponse) {
     this.onRequestEnd();
 
-    const errorMessage = error.error.message[0];
-    this.toastSetupService.setupToast(true, errorMessage, 'error');
+    const errorMessage = error.error.message;
+
+    this.toastSetupService.setupToast(
+      true,
+      errorMessage ? errorMessage[0] : TOAST_MESSAGES.NETWORK_ERROR,
+      'error'
+    );
   }
 
   get emailControl() {

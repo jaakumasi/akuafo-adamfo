@@ -15,6 +15,11 @@ export const LOCAL_STORAGE_KEYS = {
   USER_ID: 'id-user'
 };
 
+/* Toast Messages */
+export const TOAST_MESSAGES = {
+  NETWORK_ERROR: 'Request failed. Please check your network',
+}
+
 /* Session Storage Keys */
 export const SESSION_STORAGE_KEYS = {
 }
