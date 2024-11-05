@@ -62,6 +62,7 @@
                 size="large"
                 (clickEvent)="handleSignup()"
                 [isDisabled]="!isSignupFormValid()"
+                [isLoading]="isMakingApiCall()"
             />
         </form>
 

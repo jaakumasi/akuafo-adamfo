@@ -84,7 +84,9 @@ export class SignupComponent implements OnInit, OnDestroy {
     this.signupApiSubscription = this.authenticationService
       .signup(reqBody)
       .subscribe({
-        next: (response) => this.handleSignupSuccess(response),
+        next: (response) => {
+          this.handleSignupSuccess(response);
+        },
         error: (error) => this.handleSingupError(error),
       });
   }
